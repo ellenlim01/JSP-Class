@@ -29,6 +29,8 @@ public class BoardWriteServlet3 extends HttpServlet {
 		vo.setTitle(title);
 		vo.setCtnt(ctnt);
 		
+		BoardDAO.insertBoard(vo);
+		response.sendRedirect("/list3");
 		
 	}
 
