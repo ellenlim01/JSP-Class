@@ -6,10 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>리스트</title>
+<style>
+.record {
+	cursor: pointer;
+}
+table, td, th {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+.record:hover {
+	background-color: goldenrod;
+}
+</style>
 </head>
 <body>
 	<div>
-		<a href="/write3">그,ㄹ쓰기</a>
+		<a href="/write3">글 쓰기</a>
 	</div>
 	<div>
 		<table>
@@ -20,13 +32,19 @@
 			</tr>
 			
 			<c:forEach items="${list}" var="item">
-				<tr>
+				<tr class="record" onclick="moveToDetail(${item.iboard});">
 					<td>${item.iboard}</td>
 					<td>${item.title}</td>
 					<td>${item.regdt}</td>
 				</tr>
 			</c:forEach>
 		</table>
+	<script>
+		function moveToDetail(iboard) {
+			//console.log('iboard: %d', iboard);
+			location.href = '/detail3?iboard=' + iboard;
+		}
+	</script>
 	</div>
 </body>
 </html>
