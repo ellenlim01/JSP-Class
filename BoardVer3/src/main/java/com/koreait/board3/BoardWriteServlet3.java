@@ -34,4 +34,5 @@ public class BoardWriteServlet3 extends HttpServlet {
 		
 	}
 
+	
 }
