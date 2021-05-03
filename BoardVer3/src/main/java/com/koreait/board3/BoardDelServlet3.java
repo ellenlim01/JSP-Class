@@ -8,22 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/detail3")
-public class BoardDetailServlet3 extends HttpServlet {
+@WebServlet("/del3")
+public class BoardDelServlet3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
+ 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String iboard = request.getParameter("iboard");
-		System.out.println("iboard:" + iboard);
+		BoardVO3 param = new BoardVO3();
+		param.setIboard(Integer.parseInt(iboard));
 		
-		int intIboard = Integer.parseInt(iboard);
+		BoardDAO.delboard(param);
 		
-		BoardVO3 data = BoardDAO.selboard(intIboard);
-		
-		request.setAttribute("data", data);
-		
-		request.getRequestDispatcher("WEB-INF/view/detail3.jsp").forward(request, response);
+		response.sendRedirect("/list3");
 	}
-
 }
+
