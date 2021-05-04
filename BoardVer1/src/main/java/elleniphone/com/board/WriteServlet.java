@@ -1,38 +1,41 @@
-package com.koreait.board3;
+package elleniphone.com.board;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import elleniphone.util.board.BoardDAO;
+import elleniphone.util.board.BoardVO;
+import elleniphone.util.board.Util;
 
-@WebServlet("/write3")
-public class BoardWriteServlet3 extends HttpServlet {
+
+@WebServlet("/write")
+public class WriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String jsp = "/WEB-INF/view/write3.jsp";
-		request.getRequestDispatcher(jsp).forward(request, response);
+		Util.goTo(request, response, "write");
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String title = request.getParameter("title");
-		System.out.println(title);
-		String ctnt = request.getParameter("ctnt");
-		System.out.println(ctnt);
+		String content = request.getParameter("content");
 		
-		BoardVO3 vo = new BoardVO3();
-		vo.setTitle(title);	
-		vo.setCtnt(ctnt);
+		BoardVO vo = new BoardVO();
+		vo.setTitle(title);
+		vo.setContent(content);
 		
-		BoardDAO.insertBoard(vo);
-		response.sendRedirect("/list3");
+		BoardDAO dao = new BoardDAO();
+		dao.insertBoard(vo);
 		
+		response.sendRedirect("/list");
 	}
 
-	
 }
