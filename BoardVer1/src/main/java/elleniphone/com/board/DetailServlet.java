@@ -18,11 +18,10 @@ public class DetailServlet extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String iboard = request.getParameter("iboard");
-		int no = Integer.parseInt(iboard);
+		int iboard = Util.getParamInt("iboard", request);
 		
 		BoardDAO dao = new BoardDAO();
-		BoardVO vo = dao.selBoard(no);
+		BoardVO vo = dao.selBoard(iboard);
 		request.setAttribute("data", vo);
 		
 		Util.goTo(request, response, "detail");

@@ -8,7 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Util {
 	
-	public static void goTo(HttpServletRequest request, HttpServletResponse response, String jsp) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/jsp/"+ jsp +".jsp").forward(request, response);
+	public static int getParamInt(String iboard, HttpServletRequest request) {
+		return parseStringToInt(request.getParameter(iboard));
+	}
+	
+	public static int parseStringToInt(String strNum) {
+		try {
+			return Integer.parseInt(strNum);
+		} catch (Exception e) {
+			return 0;
+		}
+		
+	}
+
+	public static void goTo(HttpServletRequest request, HttpServletResponse response, String jsp)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/jsp/" + jsp + ".jsp").forward(request, response);
 	}
 }
