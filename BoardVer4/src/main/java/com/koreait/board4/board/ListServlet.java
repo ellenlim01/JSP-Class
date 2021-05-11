@@ -32,7 +32,7 @@ public class ListServlet extends HttpServlet {
 		
 		MyUtils.openJsp("board/list", request, response);
 			
-//		Boolean loginSuccess = (Boolean) hs.getAttribute("loginSuccess");
+//		Boolean loginSuccess = (Boolean) hs.getAttribute("loginSuccess"); 
 //		System.out.println("loginSuccess: " + loginSuccess);
 //		if (loginSuccess == null || loginSuccess == false) {    
 //			response.sendRedirect("/user/login");
