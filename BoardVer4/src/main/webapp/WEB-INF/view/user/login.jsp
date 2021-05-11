@@ -10,16 +10,20 @@ body {
 	background-color: #ffd7d7;
 }
 .ddong {
-background-color: #b4cde4;
-border:none
+	background-color: #b4cde4;
+	border:none
+}
+#center {
+	margin: auto;
 }
 
 </style>
 </head>
 <body>
-	<div>
-		<div>
-			<form>
+	<div id="center">
+		<div class="errMsg">${errMsg}</div>
+			<div>
+			<form action="login" method="post">
 				<div><input class="ddong" type="text" name="uid" placeholder="아이디"></div>
 				<div><input class="ddong" type="password" name="upw" placeholder="비밀번호"></div>
 				<div>

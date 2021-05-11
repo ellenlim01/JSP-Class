@@ -37,19 +37,25 @@ public class UserDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		
+
 		String sql = "SELECT * from t_user WHERE uid = ?";
 		try {
 			con = DbUtils.getCon();
 			ps = con.prepareStatement(sql);
-			
+
 			ps.setString(1, param.getUid());
-			
+
 			rs = ps.executeQuery();
-			
-			if(rs.next()) {
+						
+			if (rs.next()) {
 				String dbPw = rs.getString("upw");
-				if(dbPw.equals(param.getUpw())) {
+				if (dbPw.equals(param.getUpw())) {
+					int iuser = rs.getInt("iuser");
+					String unm = rs.getString("unm");
+					
+					param.setIuser(iuser);
+					param.setUnm(unm);
+					
 					return 1;
 				} else {
 					return 3;
@@ -64,6 +70,6 @@ public class UserDAO {
 		} finally {
 			DbUtils.close(con, ps, rs);
 		}
-		
+
 	}
 }
