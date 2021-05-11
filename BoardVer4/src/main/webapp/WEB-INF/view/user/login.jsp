@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +9,37 @@
 body {
 	background-color: #ffd7d7;
 }
+#center {
+position: relative;
+margin: 50px auto;
+text-align: center;
+display: inline-block;
+width: 400px;
+}
+
 .ddong {
 	background-color: #b4cde4;
-	border:none
+	border:none;
+	width: 150px;
+	height: 20px;
+	
 }
-#center {
-	margin: auto;
+.poo {
+	background-color: #b4cde4;
+	border:none;
+	width: 60px;
+	height: 20px;
+}
+#btn {
+	position: absolute;
+	top: 48px;
+	left: 195px;
+}
+#btn2 {
+	position: relative;
+	right: 40px;
+	display: inline-block;
+	width: 60px;
 }
 
 </style>
@@ -22,17 +47,21 @@ body {
 <body>
 	<div id="center">
 		<div class="errMsg">${errMsg}</div>
-			<div>
+		<div id="form">
 			<form action="login" method="post">
-				<div><input class="ddong" type="text" name="uid" placeholder="아이디"></div>
-				<div><input class="ddong" type="password" name="upw" placeholder="비밀번호"></div>
 				<div>
-					<input class="ddong" type="submit" value="Login">
+					<input class="ddong" type="text" name="uid" placeholder="아이디">
+				</div>
+				<div>
+					<input class="ddong" type="password" name="upw" placeholder="비밀번호">
+				</div>
+				<div id="btn2">
+					<input class="poo" type="submit" value="Login">
 				</div>
 			</form>
 		</div>
-		<div>
-			<a href="join"><button class="ddong">Join</button></a>
+		<div id="btn">
+			<a href="join"><button class="poo">Join</button></a>
 		</div>
 	</div>
 </body>

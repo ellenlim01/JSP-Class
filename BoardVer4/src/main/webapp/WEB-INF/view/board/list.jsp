@@ -7,6 +7,8 @@
 <title>리스트</title>
 </head>
 <body>
-	<div>${loginUser.unm}님(${loginUser.uid}) 환영합니다(❁´◡`❁)</div>
+	<div>${loginUser.unm}님(${loginUser.uid}) 환영합니다(❁´◡`❁)
+		<a href="/user/logout"><button>Logout</button></a>
+	</div>
 </body>
 </html>
