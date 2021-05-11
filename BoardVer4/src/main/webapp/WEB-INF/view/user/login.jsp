@@ -16,7 +16,10 @@ text-align: center;
 display: inline-block;
 width: 400px;
 }
-
+#form {
+	margin: auto;
+	
+}
 .ddong {
 	background-color: #b4cde4;
 	border:none;

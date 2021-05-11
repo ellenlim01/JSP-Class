@@ -1,6 +1,9 @@
 package com.koreait.board4.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +27,8 @@ public class ListServlet extends HttpServlet {
 			response.sendRedirect("/user/login");
 			return;
 		} 
+		
+		request.setAttribute("list", BoardDAO.selBoardList());
 		
 		MyUtils.openJsp("board/list", request, response);
 			
