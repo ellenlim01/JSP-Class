@@ -32,12 +32,12 @@ public class WriteServlet extends HttpServlet {
 		
 		String title = request.getParameter("title");
 		String ctnt = request.getParameter("ctnt");
+		int iuser = MyUtils.getLoginUserPk(request);
 		
 //		HttpSession hs = request.getSession();
 //		UserVO loginUser = (UserVO) hs.getAttribute("loginUser");
 //		int iuser = loginUser.getIuser();
 		
-		int iuser = MyUtils.getLoginUserPk(request);
 		
 		BoardVO vo = new BoardVO();
 		vo.setTitle(title);

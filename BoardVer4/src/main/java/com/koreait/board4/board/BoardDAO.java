@@ -128,4 +128,26 @@ public class BoardDAO {
 			DbUtils.close(con, ps, rs);
 		}
 	}
+
+	public static void updBoard(BoardVO vo) {
+		Connection con = null;
+		PreparedStatement ps = null;
+
+		String sql = "UPDATE t_board SET title = ?, ctnt = ? WHERE iboard = ?";
+		try {
+			con = DbUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, vo.getTitle());
+			ps.setString(2, vo.getCtnt());
+			ps.setInt(3, vo.getIboard());
+
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbUtils.close(con, ps);
+		}
+		
+	}
 }

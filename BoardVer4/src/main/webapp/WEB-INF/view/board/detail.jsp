@@ -10,6 +10,10 @@
 	body {
 	background-color: #ffd7d7;
 	}
+	#btn {
+		background-color: #b4cde4;
+		border: none;
+	}
 </style>
 </head>
 <body>
@@ -21,7 +25,8 @@
 	<c:if test="${loginUser.iuser == data.iuser}">
 	<div>
 		<a href="del?iboard=${param.iboard}">삭제</a>
-		<a href="">수정</a>
+		<a href="mod?iboard=${param.iboard}">수정</a>
+		<a href="list"><button id="btn">글 목록</button></a>
 	</div>
 	</c:if>
 </body>
