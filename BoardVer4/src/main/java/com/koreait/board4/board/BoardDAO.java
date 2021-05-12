@@ -107,21 +107,23 @@ public class BoardDAO {
 		return null;
 	}
 
-	public static void delBoard(int iboard) {
+	public static int delBoard(BoardVO vo) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String sql = "DELETE FROM t_board WHERE iboard = ?";
+		String sql = "DELETE FROM t_board WHERE iboard = ? AND iuser = ?";
 
 		try {
 			con = DbUtils.getCon();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, iboard);
-			ps.executeUpdate();
+			ps.setInt(1, vo.getIboard());
+			ps.setInt(2, vo.getIuser());
+			 return ps.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return 0 ;
 		} finally {
 			DbUtils.close(con, ps, rs);
 		}
