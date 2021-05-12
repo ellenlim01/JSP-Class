@@ -6,44 +6,44 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <style>
-body {
-	background-color: #ffd7d7;
-}
-#center {
-position: relative;
-margin: 50px auto;
-text-align: center;
-display: inline-block;
-width: 400px;
-}
-#form {
-	margin: auto;
+	body {
+		background-color: #ffd7d7;
+	}
+	#center {
+		position: relative;
+		margin: 50px auto;
+		text-align: center;
+		display: inline-block;
+		width: 100%;
+	}
+	#form {
+		margin: auto;
 	
-}
-.ddong {
-	background-color: #b4cde4;
-	border:none;
-	width: 150px;
-	height: 20px;
+	}
+	.ddong {
+		background-color: #b4cde4;
+		border:none;
+		width: 150px;
+		height: 20px;
 	
-}
-.poo {
-	background-color: #b4cde4;
-	border:none;
-	width: 60px;
-	height: 20px;
-}
-#btn {
-	position: absolute;
-	top: 48px;
-	left: 195px;
-}
-#btn2 {
-	position: relative;
-	right: 40px;
-	display: inline-block;
-	width: 60px;
-}
+	}
+	.poo {
+		background-color: #b4cde4;
+		border:none;
+		width: 60px;
+		height: 20px;
+	}
+	#btn {
+		position: absolute;
+		top: 47px;
+		left: 680px;
+	}
+	#btn2 {
+		position: relative;
+		right: 40px;
+		display: inline-block;
+		width: 60px;
+	}
 
 </style>
 </head>
