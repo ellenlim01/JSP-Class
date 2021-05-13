@@ -16,8 +16,8 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession hs = request.getSession();
-		UserVO loginUser = (UserVO) hs.getAttribute("loginUser");
+		UserVO loginUser = MyUtils.getLoginUser(request);
+		
 		if(loginUser != null) {
 			response.sendRedirect("/board/list");
 			return;
