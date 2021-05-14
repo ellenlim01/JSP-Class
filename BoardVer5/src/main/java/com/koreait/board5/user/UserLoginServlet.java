@@ -18,6 +18,11 @@ public class UserLoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		UserVO loginUser = MyUtils.getLoginUser(request);
+		if(loginUser != null) {
+			response.sendRedirect("/board/boardList");
+			return;
+		}
 		MyUtils.openJsp("user/userLogin", request, response);
 	}
 
@@ -34,7 +39,7 @@ public class UserLoginServlet extends HttpServlet {
 		if (result == null) {
 			// 아이디 없음
 			request.setAttribute("errMsg", "아이디를 확인해주세요.");
-		} else if (BCrypt.checkpw(result.getUpw(), upw)) {
+		} else if (BCrypt.checkpw(upw, result.getUpw())) {
 			// 아이디 있음 & 비밀번호 체크 성공
 			result.setUpw(null);
 
@@ -42,7 +47,7 @@ public class UserLoginServlet extends HttpServlet {
 			hs.setAttribute("loginUser", result);
 
 			response.sendRedirect("/board/boardList");
-
+			return;
 		} else {
 			// 비밀번호 틀림
 			request.setAttribute("errMsg", "비밀번호를 확인해주세요.");
