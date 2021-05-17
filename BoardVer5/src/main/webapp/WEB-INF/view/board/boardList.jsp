@@ -6,9 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
+<script defer src="/res/js/boardList.js"></script>
+	<!-- defer: 화면을 먼저 띄우라는 의미 -->
+<link rel="stylesheet" href="/res/css/boardList.css">
 </head>
 <body>
-	<h1>게시팜</h1>
+	<h1>${sessionScope.loginUser.unm}님환영합니다ヾ(•ω•`)o</h1>
+	<h2>게시팜</h2>
 	<div>
 		<div>
 			<table>
@@ -18,8 +22,8 @@
 					<th>글쓴이</th>
 					<th>일시</th>
 				</tr>
-				<c:forEach items="${data}" var="item">
-					<tr onclick="goToDetail(${item.iboard})">
+				<c:forEach items="${requestScope.data}" var="item">
+					<tr class="record" onclick="moveToDetail(${item.iboard})">
 						<td>${item.iboard}</td>
 						<td>${item.title}</td>
 						<td>${item.unm}</td>
@@ -28,14 +32,10 @@
 				</c:forEach>
 			</table>
 			<div>
-				<a href="/board/boardWrite"><button>글 작성</button></a>
+				<a href="/board/boardWrite"><button>글 작성</button></a> <a
+					href="/user/userLogout"><button>Logout</button></a>
 			</div>
 		</div>
 	</div>
-	<script>
-		function goToDetail(iboard) {
-			location.href = "/board/boardDetail?iboard=" + iboard;
-		}
-	</script>
 </body>
 </html>

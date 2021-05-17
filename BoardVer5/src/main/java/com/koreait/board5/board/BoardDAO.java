@@ -11,6 +11,7 @@ import com.koreait.board5.DbUtils;
 public class BoardDAO {
 
 	public static List<BoardVO> selList() {
+		List<BoardVO> list = new ArrayList<BoardVO>();
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -24,7 +25,6 @@ public class BoardDAO {
 			con = DbUtils.getCon();
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			List<BoardVO> list = new ArrayList<BoardVO>();
 			
 			while(rs.next()) {
 				
@@ -45,7 +45,7 @@ public class BoardDAO {
 			e.printStackTrace();
 			return null;
 		} finally {
-			DbUtils.close(con, ps);
+			DbUtils.close(con, ps, rs);
 		}
 	}
 
@@ -82,7 +82,7 @@ public class BoardDAO {
 			e.printStackTrace();
 			return null;
 		} finally {
-			DbUtils.close(con, ps);
+			DbUtils.close(con, ps, rs);
 		}
 		return null;
 	}
