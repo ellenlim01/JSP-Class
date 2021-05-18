@@ -21,7 +21,14 @@ public class BoardWriteServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		BoardVO vo = new BoardVO();
+		vo.setTitle(request.getParameter("title"));
+		vo.setCtnt(request.getParameter("ctnt"));
+		int iuser = MyUtils.getLoginUserPk(request);
+		vo.setIuser(iuser);
+		BoardDAO.insBoard(vo);
+		
+		response.sendRedirect("boardList");
 	}
 
 }

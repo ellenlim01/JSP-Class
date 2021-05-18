@@ -1,4 +1,4 @@
-package com.koreait.board5.cmt;
+ package com.koreait.board5.cmt;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

@@ -9,6 +9,28 @@ import java.util.List;
 import com.koreait.board5.DbUtils;
 
 public class BoardDAO {
+	
+	public static int insBoard(BoardVO vo) {
+		Connection con = null;
+		PreparedStatement ps = null;
+
+		String sql = "INSERT INTO t_board (title, ctnt, iuser) VALUES (?, ?, ?)";
+		try {
+			con = DbUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, vo.getTitle());
+			ps.setString(2, vo.getCtnt());
+			ps.setInt(3, vo.getIuser());
+
+			return ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		} finally {
+			DbUtils.close(con, ps);
+		}
+	}
 
 	public static List<BoardVO> selList() {
 		List<BoardVO> list = new ArrayList<BoardVO>();
@@ -92,14 +114,14 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		
-		String sql = "DELETE from t_board WHERE iboard = ?";
+		String sql = " DELETE from t_board WHERE iboard = ? AND iuser = ? ";
 		
 		try {
 			con = DbUtils.getCon();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, vo.getIboard());
+			ps.setInt(2, vo.getIuser());
 			return ps.executeUpdate();
-			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

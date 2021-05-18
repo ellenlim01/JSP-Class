@@ -108,4 +108,24 @@ public class CmtDAO {
 			DbUtils.close(con, ps);
 		}
 	}
+	
+	public static void delAllCmt(int iboard) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		String sql = " DELETE FROM t_board_cmt WHERE iboard = ? ";
+		
+		try {
+			con = DbUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, iboard);
+
+			ps.executeUpdate();
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbUtils.close(con, ps);
+		}
+	}
 }

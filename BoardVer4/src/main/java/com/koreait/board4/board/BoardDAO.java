@@ -110,7 +110,6 @@ public class BoardDAO {
 	public static int delBoard(BoardVO vo) {
 		Connection con = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 
 		String sql = "DELETE FROM t_board WHERE iboard = ? AND iuser = ?";
 
@@ -125,7 +124,7 @@ public class BoardDAO {
 			e.printStackTrace();
 			return 0 ;
 		} finally {
-			DbUtils.close(con, ps, rs);
+			DbUtils.close(con, ps);
 		}
 	}
 

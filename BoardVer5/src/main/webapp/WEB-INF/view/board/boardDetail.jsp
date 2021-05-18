@@ -63,8 +63,8 @@
 		</table>
 	</div>
 	<div>
-		<a href="/board/boardList"><button>리스트</button></a> <a
-			href="/board/boardDel?iboard=${param.iboard}">삭제</a>
+		<a href="/board/boardList"><button>리스트</button></a> 
+		<a href="/board/boardDel?iboard=${param.iboard}">삭제</a>
 	</div>
 </body>
 </html>
