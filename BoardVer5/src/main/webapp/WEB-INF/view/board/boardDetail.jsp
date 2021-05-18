@@ -6,21 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <title>디테일</title>
-<script defer src="/res/js/boardDetail.js"></script>
+<script defer src="/res/js/boardDetail.js?ver=1"></script>
+<style>
+	.hidden {
+		display: none;
+	}
+</style>
 </head>
 <body>
-	<h1>${data.title}</h1>
-	<div>작성일 : ${data.regdt}</div>
-	<div>글쓴이 : ${data.unm}</div>
-	<div>내용 : ${data.ctnt}</div>
+	<h1>${requestScope.data.title}</h1>
+	<div>작성일 : ${requestScope.data.regdt}</div>
+	<div>글쓴이 : ${requestScope.data.unm}</div>
+	<div>내용 : ${requestScope.data.ctnt}</div>
 
 	<h3>댓글</h3>
 	<div>
-		<form action="cmt" method="post">
-			<input type="hidden" name="iboard" value="${data.iboard}">
+		<form id="insFrm" action="cmt" method="post">
+			<input type="hidden" name="icmt"value="0">
+			<input type="hidden" name="iboard" value="${requestScope.data.iboard}">
 			<div>
 				<textarea name="cmt" placeholder="댓글 내용"></textarea>
 				<input type="submit" value="댓글 작성">
+			</div>
+		</form>
+		
+		<form id="updFrm" action="cmt" method="post" class="hidden">
+			<input type="hidden" name="icmt"value="0">
+			<input type="hidden" name="iboard" value="${requestScope.data.iboard}">
+			<div>
+				<textarea name="cmt" placeholder="댓글 내용"></textarea>
+				<input type="submit" value="댓글 수정">
+				<input type="button" onclick="showInsFrm();" value="수정 취소">
 			</div>
 		</form>
 	</div>
@@ -39,7 +55,7 @@
 					<td>${item.regdate}</td>
 					<td>
 						<c:if test="${sessionScope.loginUser.iuser == item.iuser}">
-							<button>수정</button>
+							<input type="button" value="수정" onclick="updCmt(${item.icmt}, '${item.cmt.trim()}');">
 							<button onclick="delCmt(${requestScope.data.iboard}, ${item.icmt})">삭제</button>
 						</c:if></td>
 				</tr>

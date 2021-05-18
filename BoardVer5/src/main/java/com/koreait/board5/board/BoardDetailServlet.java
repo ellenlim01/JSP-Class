@@ -18,8 +18,8 @@ public class BoardDetailServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int iboard = MyUtils.getParamInt("iboard", request);
-		request.setAttribute("data", BoardDAO.selBoard(iboard));
-		request.setAttribute("cmtList", CmtDAO.selCmtList(iboard));
+		request.setAttribute("data", BoardDAO.selBoard(iboard));//글의 정보
+		request.setAttribute("cmtList", CmtDAO.selCmtList(iboard));//댓글 리스트
 		MyUtils.openJsp("board/boardDetail", request, response);
 	}
 
