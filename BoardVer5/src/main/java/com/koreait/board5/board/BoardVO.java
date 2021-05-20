@@ -1,13 +1,21 @@
 package com.koreait.board5.board;
 
 public class BoardVO {
-	int iboard;
-	String title;
-	String ctnt;
-	int iuser;
-	String regdt;
-	String unm;
+	private int iboard;
+	private String title;
+	private String ctnt;
+	private int iuser;
+	private String regdt;
+	private String unm;
+	private int isFav;
+
 	
+	public int getIsFav() {
+		return isFav;
+	}
+	public void setIsFav(int isFav) {
+		this.isFav = isFav;
+	}
 	public int getIboard() {
 		return iboard;
 	}

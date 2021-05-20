@@ -76,11 +76,12 @@ public class BoardDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT A.iboard, A.title, A.regdt, A.ctnt, A.iuser, B.unm "
+		String sql = " SELECT A.iboard, A.title, A.regdt, A.ctnt, A.iuser, B.unm "
 				+ " ,if(C.iboard is null, 0, 1) AS isFav "
-				+ " FROM t_board A INNER JOIN t_user B "
+				+ " FROM t_board A "
+				+ " INNER JOIN t_user B "
 				+ " ON A.iuser = B.iuser "
-				+ " LEFT JOIN t_board_ fav C "
+				+ " LEFT JOIN t_board_fav C "
 				+ " ON A.iboard = C.iboard "
 				+ " AND C.iuser = ? "
 				+ " WHERE A.iboard = ? ";
@@ -88,8 +89,8 @@ public class BoardDAO {
 		try {
 			con = DbUtils.getCon();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, param.getIuser());
-			ps.setInt(2, param.getIboard());
+			ps.setInt(1, param.getIuser());//로그인 user PK
+			ps.setInt(2, param.getIboard());//
 			
 			rs = ps.executeQuery();
 			
@@ -103,6 +104,7 @@ public class BoardDAO {
 				vo.setIuser(rs.getInt("iuser"));
 				vo.setUnm(rs.getString("unm"));
 				vo.setCtnt(rs.getString("ctnt"));
+				vo.setIsFav(rs.getInt("isFav"));
 				
 				return vo;
 			}

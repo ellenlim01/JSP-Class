@@ -22,9 +22,14 @@
 </head>
 <body>
 	<h1>
-		${requestScope.data.title} 
-		<a href="fav?iboard=${param.iboard}&fav=1"><i class="far fa-heart"></i></a> 
-		<a href="fav?iboard=${param.iboard}&fav=0"><i class="fas fa-heart "></i></a>
+		${requestScope.data.title}
+		<c:if test="${data.isFav eq 0}">
+			<a href="fav?iboard=${param.iboard}&fav=1"><i class="far fa-heart"></i></a>
+		</c:if>
+		<c:if test="${data.isFav eq 1}">
+			<a href="fav?iboard=${param.iboard}&fav=0"><i class="fas fa-heart "></i></a>
+		</c:if>	
+	
 	</h1>
 	<div>작성일 : ${requestScope.data.regdt}</div>
 	<div>글쓴이 : ${requestScope.data.unm}</div>
