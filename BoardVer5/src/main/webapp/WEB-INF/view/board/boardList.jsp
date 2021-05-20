@@ -9,6 +9,8 @@
 <script defer src="/res/js/boardList.js?ver=1"></script>
 	<!-- defer: 화면을 먼저 띄우라는 의미 -->
 <link rel="stylesheet" href="/res/css/boardList.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css
+">
 </head>
 <body>
 	<h1>${sessionScope.loginUser.unm}님 환영합니다ヾ(•ω•`)o</h1>

@@ -14,12 +14,13 @@ function delCmt(iboard, icmt) {
 //댓글 수정
 function updCmt(icmt, cmt) {
 	insFrm.className = 'hidden';
-	updFrm.className = '';
-	updFrm.icmt.value = icmt;
-	updFrm.cmt.value = cmt;
+	updFrm.className = '';// 아이디만 적어줘도 주소 값을 가져오긴 함
+	
+	updFrmElem.icmt.value = icmt;
+	updFrmElem.cmt.value = cmt;
 }
 
 function showInsFrm() {
-	insFrm.className = '';
-	updFrm.className = 'hidden';
+	insFrmElem.className = '';
+	updFrmElem.className = 'hidden';
 }
