@@ -4,6 +4,14 @@
 <h1>리스트</h1>
 
 <div>
+	<div>
+		<form action="list" method="get">
+			<div>
+				<input type="search" name="search">
+				<input type="submit" name="검색">
+			</div>
+		</form>
+	</div>
 	<table>
 		<tr>
 			<th>no</th>
@@ -20,4 +28,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<div>
+		<c:forEach begin="1" end="${requestScope.totalPage}" var="cnt">
+			<a href="list?page=${cnt}&search=${param.search}"><span>${cnt}</span></a>
+		</c:forEach>
+	</div>
 </div>

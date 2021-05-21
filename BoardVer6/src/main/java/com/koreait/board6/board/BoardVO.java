@@ -10,8 +10,15 @@ public class BoardVO {
 	private String unm;
 	private int sIdx;
 	private int page;
-
+	private String search;
 	
+	
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	public int getsIdx() {
 		return sIdx;
 	}
