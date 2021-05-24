@@ -20,6 +20,14 @@ function idChkAjax(uid) {
 	})
 	.then(function(myJson) {
 		console.log(myJson);
+		switch(myJson.result) {
+			case 0:
+			chkUidResultElem.innerText = '이 아이디는 사용할 수 있습니다.';
+			break;
+			case 1: 
+			chkUidResultElem.innerText = '이 아이디는 사용할 수 없습니다.';
+			break;
+		} 
 	})
 }
 

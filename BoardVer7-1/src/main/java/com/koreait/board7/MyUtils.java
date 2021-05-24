@@ -7,29 +7,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.koreait.board7.user.UserVO;
+import com.koreait.board7.user.UserEntity;
 
 
 public class MyUtils {
-	public static UserVO getLoginUser(HttpServletRequest req) {
+	public static UserEntity getLoginUser(HttpServletRequest req) {
 		if(req == null) {
 			return null;
 		}
 		
 		HttpSession hs = req.getSession();
-		return (UserVO) hs.getAttribute("loginUser");
+		return (UserEntity) hs.getAttribute("loginUser");
 	}
 	
-//	public static int getLoginUserPk(HttpServletRequest request) {
-//		if(request == null) {
-//			return 0;
-//		}
-//		
-//		return getLoginUser(request).getIuser();
-//	}
+	public static int getLoginUserPk(HttpServletRequest request) {
+		if(request == null) {
+			return 0;
+		}
+		
+		return getLoginUser(request).getIuser();
+	}
 	
-	public static void openJsp(String fileNm, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/view/" + fileNm + ".jsp").forward(request, response);
+	public static void openJsp(String title, String jsp, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("title", title);
+		request.setAttribute("jsp", jsp);
+		request.getRequestDispatcher("/WEB-INF/view/template.jsp").forward(request, response);
 	}
 	
 	public static int parseStringToInt(String val) {

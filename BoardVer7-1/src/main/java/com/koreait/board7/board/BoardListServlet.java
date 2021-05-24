@@ -1,4 +1,4 @@
-package com.koreait.board7.user;
+package com.koreait.board7.board;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/user/idChk")
-public class IdChkjoinServlet extends HttpServlet {
+import com.koreait.board7.MyUtils;
+
+@WebServlet("/board/list")
+public class BoardListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uid = request.getParameter("uid");
-		System.out.println("uid : " + uid);
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setAttribute("list", BoardDAO.selBoardList());
+		MyUtils.openJsp("리스트", "board/boardList", request, response);
+		
 	}
 
 }
