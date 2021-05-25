@@ -24,5 +24,5 @@ public class IdChkAjaxServlet extends HttpServlet {
 		.append("}")
 		.close();
 	}
-
+	
 }

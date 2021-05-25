@@ -28,6 +28,13 @@ function idChkAjax(uid) {
 		} 
 	})
 }
+/*
+var res = '{result: 1}';
+var myjson = res.json();
+var myjson = {
+	result: 1
+}
+*/
 
 function frmChk() {
 	//이상이 생기면 return false;

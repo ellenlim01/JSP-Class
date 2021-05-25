@@ -11,10 +11,6 @@ btnChkIdElem.addEventListener('click', function() {
 	idChkaJAX(uidElem.value);
 });
 
-function idChkAjax(uid) {
-	
-}
-
 function frmChk(){
 	// 아이디 글자 수
 	var uidVal = uidElem.value;
@@ -30,7 +26,7 @@ function frmChk(){
 	
 	
 	var upwVal = upwElem.value;
-	var chkUpwVal = chkUpwVal.value;
+	var chkUpwVal = chkUpwElem.value;
 	//비밀번호 확인 및 글자 수
 	if (upwVal.length < 4) {
 		if (upwVal.length == 0) {
