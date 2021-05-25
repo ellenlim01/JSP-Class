@@ -15,7 +15,7 @@ public class UserJoinServlet extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MyUtils.openJsp("회원가입", "user/Join", request, response);
+		MyUtils.openJsp("회원가입", "user/userJoin", request, response);
 	}
 
 	

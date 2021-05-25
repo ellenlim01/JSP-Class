@@ -34,3 +34,17 @@
 		</c:forEach>
 	</div>
 </div>
+<div>
+	<form action="list" method="get">
+		<div>
+			<select name="searchType">
+				<option value="1">제목+내용</option>
+				<option value="2">제목</option>
+				<option value="3">내용</option>
+				<option value="4">글쓴이</option>
+			</select>
+			<input type="search" name="searchText">
+			<input type="submit" value="검색">
+		</div>
+	</form>
+</div>

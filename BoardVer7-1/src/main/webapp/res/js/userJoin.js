@@ -11,8 +11,6 @@ btnChkIdElem.addEventListener('click', function() {
 });
 
 function idChkAjax(uid) {
-	console.log(uid);
-	chkUidResultElem.innerText = '이 아이디는 사용할 수 있습니다';
 	
 	fetch('/user/idChk?uid=' + uid)
 	.then(function(res) {

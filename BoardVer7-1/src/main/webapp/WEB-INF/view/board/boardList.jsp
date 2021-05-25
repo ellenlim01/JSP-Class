@@ -13,8 +13,27 @@
 	<c:forEach items="${requestScope.list}" var="item">
 		<tr>
 			<td>${item.iboard}</td>
-			<td>${item.title}</td>
+			<td>
+				<c:choose>
+					<c:when test="${param.searchType eq 1 || param.searchType eq 2}">
+						${item.title.replace(param.searchText, "<mark>" + param.searchText +  }
+					</c:when>
+				</c:choose>
+			${item.title}</td>
 			<td>${item.writerNm}</td>
 			<td>${item.regdt}</td>
 	</c:forEach>
 </table>
+
+<div>
+	<c:forEach begin="1" end="${requestScope.pagingCnt}" var="page">
+		<c:choose>
+			<c:when test="${page eq param.cPage || (empty param.cPage && page eq 1)}">
+				<span class="colorRed">${page}</span>
+			</c:when>
+			<c:otherwise>
+				<span><a href="list?cPage=${page}">${page}</a></span>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+</div>
