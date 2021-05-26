@@ -26,6 +26,7 @@ public class CalendarServlet extends HttpServlet {
 		ce.setMonth(cal.get(Calendar.MONTH)+1);
 		cal.set(Calendar.DAY_OF_MONTH, 1);
 		ce.setFirstDayOfWeek(cal.get(Calendar.DAY_OF_WEEK));
+		ce.setLastDay(cal.getActualMaximum(Calendar.DATE));
 		
 		request.setAttribute("data", ce);
 		String[] dates = {"일","월","화","수","목","금","토"};
