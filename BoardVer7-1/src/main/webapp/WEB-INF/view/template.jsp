@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>${requestScope.title}</title>
-<link rel="stylesheet" href="/res/css/common.css">
 </head>
 <body>
 	<header>
@@ -17,7 +16,7 @@
 				</c:if>
 				<c:if test="${not empty sessionScope.loginUser}">
 					<li><a href="/user/logout">로그아웃</a></li>
-					<li><a href="/board/write">글 쓰기</a></li>
+					<li><a href="/board/write">글쓰기</a></li>
 					<li><a href="/board/favoriteList">좋아요</a></li>
 				</c:if>
 				<li><a href="/board/list">리스트</a></li>
