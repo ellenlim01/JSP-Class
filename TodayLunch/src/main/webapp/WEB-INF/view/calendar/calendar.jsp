@@ -16,7 +16,7 @@
 	<c:forEach begin="1" end="6" var="i">
 	<tr>
 		<c:forEach begin="1" end="7" var="j">
-			<td id="imsi${(i-1)*7 + j}">
+			<td id="imsi${(i-1)*7 + j}">${(i-1)*7 + j}</td>
 		</c:forEach>
 	</tr>
 	</c:forEach>

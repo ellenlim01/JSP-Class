@@ -19,9 +19,18 @@ public class CalendarServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Calendar cal = Calendar.getInstance();
+		CalendarEntity ce = new CalendarEntity();
+		ce.setLastDay(cal.getActualMaximum(Calendar.DATE));
+		ce.setYear(cal.get(Calendar.YEAR));
+		ce.setMonth(cal.get(Calendar.MONTH)+1);
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+		ce.setFirstDayOfWeek(cal.get(Calendar.DAY_OF_WEEK));
 		
-
-
+		request.setAttribute("data", ce);
+		String[] dates = {"일","월","화","수","목","금","토"};
+		request.setAttribute("dates", dates);
+		
 		MyUtils.openJsp("calendar", "calendar/calendar", request, response);
 	}
 
